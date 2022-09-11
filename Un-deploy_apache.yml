@@ -1,0 +1,15 @@
+ ---
+ -hosts: aws
+   tasks:
+    - name: Un-install Apache2 server
+      apt: name=apache2 
+      purge=yes 
+      state=absent 
+      update_cache=yes
+      become: yes
+
+    - name: Stop Apache2 service
+      apt: autoremove=yes 
+      purge=yes
+      become: yes
+      
